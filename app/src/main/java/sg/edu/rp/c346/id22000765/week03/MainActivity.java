@@ -28,77 +28,56 @@ public class MainActivity extends AppCompatActivity {
         btnDisplay = findViewById(R.id.buttonDisplay);
         etInput = findViewById(R.id.editTextInput);
         tbtn = findViewById(R.id.toggleButtonEnabled);
-        rgGender =findViewById(R.id.rgGender);
+        rgGender = findViewById(R.id.rgGender);
 
 
         btnDisplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //code for the action
-                String stringResponse=etInput.getText().toString();
-                tvDisplay.setText((stringResponse));
-                tbtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // Add your code for the action
+                String stringResponse = etInput.getText().toString();
 
-                        // get the state of the toggle button
-                        //when the toggle button is unchecked, disable the EditText
-                        //when the toggle button is checked enable the EditText to false
-                        //enable it when it is checked
-                        boolean isChecked = tbtn.isChecked();
-                        if (isChecked) {
-                            etInput.setEnabled(true);
-                        }else{
-                            etInput.setEnabled(false);
-                        }
+                int checkedRadioId = rgGender.getCheckedRadioButtonId();
 
+                String display;
+                if (checkedRadioId == R.id.radioButtonGenderMale) {
+                    // Write the code when male selected
+                    display = "He says ";
 
-                        btnDisplay.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                // Code for the action
-                                String stringResponse = etInput.getText().toString();
-                                int checkedRadioId = rgGender.getCheckedRadioButtonId();
+                } else {
+                    // Write the code when female selected
+                    display = "She says ";
 
-                                String Display;
-                                if(checkedRadioId == R.id.radioButtonGenderMale){
-                                    // Write the code when male selected
-                                    Display = "He says ";
+                }
+                String displayText = display + stringResponse;
 
-                                } else{
-                                    // Write the code when female selected
-                                    Display ="She says ";
-
-                                }
-                                String displayText =  Display + stringResponse;
-
-                                tvDisplay.setText(displayText);
-                            }
-                        });
+                tvDisplay.setText(displayText);
 
 
+//                tvDisplay.setText((stringResponse));
+            }
+        });
 
+        tbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Add your code for the action
 
-
-
-
-
-
-
-
-
-
-                    }
-                });
+                // get the state of the toggle button
+                //when the toggle button is unchecked, disable the EditText
+                //when the toggle button is checked enable the EditText to false
+                //enable it when it is checked
+                boolean isChecked = tbtn.isChecked();
+                if (isChecked) {
+                    etInput.setEnabled(true);
+                } else {
+                    etInput.setEnabled(false);
+                }
 
 
             }
         });
 
-
-
-        }
-
     }
+}
 
