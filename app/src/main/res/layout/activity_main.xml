@@ -13,7 +13,7 @@
 
         <Button
             android:id="@+id/buttonDisplay"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:hint="@string/display" />
@@ -21,17 +21,45 @@
         <EditText
             android:id="@+id/editTextInput"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="2"
             android:ems="10"
             android:hint="@string/enter_something"
-            android:inputType="text"/>
+            android:inputType="text" />
+
     </LinearLayout>
 
     <TextView
         android:id="@+id/textViewDisplay"
         android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:hint="@string/enter_something" />
+
+    <RadioGroup
+        android:id="@+id/rgGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radioButtonGenderMale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/male" />
+
+        <RadioButton
+            android:id="@+id/radioButtonGenderFemale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/female" />
+    </RadioGroup>
+
+    <ToggleButton
+        android:id="@+id/toggleButtonEnabled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="ToggleButton"
+        android:textOff="@string/disabled"
+        android:textOn="@string/enabled" />
+
 </LinearLayout>
